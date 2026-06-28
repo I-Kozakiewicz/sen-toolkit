@@ -1,1 +1,389 @@
-/* The SEN & Co Toolkit Styles */
+
+/* ==========================
+   THE SEN & CO TOOLKIT
+   Version 2.0
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    color:#2d3b3b;
+
+    background:#f6f9f8;
+
+    line-height:1.6;
+
+}
+
+/* NAVIGATION */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 7%;
+
+    z-index:999;
+
+    background:rgba(255,255,255,.82);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+}
+
+.logo h2{
+
+    font-size:1.35rem;
+
+    color:#294d4d;
+
+}
+
+.logo span{
+
+    font-size:.8rem;
+
+    color:#6c8b8b;
+
+}
+
+.navbar ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:35px;
+
+}
+
+.navbar a{
+
+    color:#355454;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.navbar a:hover{
+
+    color:#77b6b4;
+
+}
+
+/* HERO */
+
+.hero{
+
+    height:100vh;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+.hero img{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        rgba(24,47,47,.55),
+
+        rgba(24,47,47,.45)
+
+    );
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    max-width:850px;
+
+    text-align:center;
+
+    color:white;
+
+    z-index:5;
+
+    padding:20px;
+
+}
+
+.hero h1{
+
+    font-size:4rem;
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+
+    font-weight:800;
+
+}
+
+.hero p{
+
+    font-size:1.25rem;
+
+    margin-bottom:40px;
+
+    opacity:.95;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn{
+
+    padding:16px 34px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+    font-weight:700;
+
+}
+
+.primary{
+
+    background:#7ab6b2;
+
+    color:white;
+
+}
+
+.primary:hover{
+
+    transform:translateY(-4px);
+
+    background:#5fa8a2;
+
+}
+
+.secondary{
+
+    background:white;
+
+    color:#355454;
+
+}
+
+.secondary:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* MAIN */
+
+main{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+}
+
+/* SECTION */
+
+section{
+
+    padding:110px 0;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    font-size:2.5rem;
+
+    color:#294d4d;
+
+    margin-bottom:18px;
+
+}
+
+.section-subtitle{
+
+    text-align:center;
+
+    color:#6b7777;
+
+    max-width:750px;
+
+    margin:auto;
+
+    margin-bottom:60px;
+
+}
+
+/* CARDS */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.card img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+.card-content{
+
+    padding:28px;
+
+}
+
+.card h3{
+
+    margin-bottom:12px;
+
+    color:#294d4d;
+
+}
+
+/* FOOTER */
+
+footer{
+
+    background:#294d4d;
+
+    color:white;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero h1{
+
+font-size:2.5rem;
+
+}
+
+.hero p{
+
+font-size:1rem;
+
+}
+
+.navbar{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.navbar ul{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+}
