@@ -1,110 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>The SEN & Co Toolkit | Visual Communication Design</title>
-
-    <meta name="description"
-        content="Custom communication cards, visual schedules, executive function supports, vector tracing and logo design for families, therapists, schools and businesses.">
-
-    <link rel="stylesheet" href="style.css">
-
+    <meta name="description" content="The SEN & Co Toolkit Studio - Premium custom visual communication and design. Specialising in AAC supports, PECS resources, autism visual supports, and custom educational graphics.">
+    <meta name="keywords" content="SEN, visual communication, AAC supports, PECS resources, autism visual supports, executive function printables, social stories, custom educational graphics, logo design">
+    <meta name="author" content="The SEN & Co Toolkit Studio">
+    <title>The SEN & Co Toolkit Studio | Custom Visual Communication & Design</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<nav class="navbar">
-
-    <div class="logo">
-
-        <h2>The SEN & Co Toolkit</h2>
-
-        <span>Visual Communication Studio</span>
-
-    </div>
-
-    <ul>
-
-        <li><a href="#about">About</a></li>
-
-        <li><a href="#services">Services</a></li>
-
-        <li><a href="#portfolio">Portfolio</a></li>
-
-        <li><a href="#faq">FAQ</a></li>
-
-        <li><a href="#contact">Contact</a></li>
-
-    </ul>
-
-</nav>
-
-<header class="hero">
-
-    <img src="images/hero.jpg" alt="Hero image">
-
-    <div class="overlay"></div>
-
-    <div class="hero-content">
-
-        <h1>Designed for Understanding.<br>Created for Independence.</h1>
-
-        <p>
-
-            Beautifully designed communication supports,
-            visual schedules,
-            executive function resources,
-            vector artwork
-            and logo design.
-
-        </p>
-
-        <div class="buttons">
-
-            <a href="#contact" class="btn primary">
-
-                Request Custom Design
-
-            </a>
-
-            <a href="https://thesenandcotoolkit.etsy.com"
-                class="btn secondary"
-                target="_blank">
-
-                Visit Etsy Shop
-
-            </a>
-
+    <header id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">The SEN & Co.</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="https://www.etsy.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary etsy-btn">Shop on Etsy</a>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
+    </header>
 
-    </div>
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-background" style="background-image: url('images/background.jpg');"></div>
+            <div class="container hero-content scroll-reveal">
+                <h1>Custom Visual Communication & Design</h1>
+                <p>A premium design studio crafting beautiful, highly functional resources for parents, therapists, and educators.</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+                    <a href="#services" class="btn btn-secondary">Our Services</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper scroll-reveal">
+                <img src="images/hero.jpg" alt="Beautiful visual communication cards" class="hero-img">
+            </div>
+        </section>
 
-</header>
+        <section id="about" class="about-section section-padding">
+            <div class="container about-container">
+                <div class="about-image scroll-reveal">
+                    <img src="images/about.jpg" alt="About The SEN & Co Toolkit Studio">
+                </div>
+                <div class="about-text scroll-reveal">
+                    <h2>About the Studio</h2>
+                    <p>At The SEN & Co Toolkit Studio, we believe that communication is a fundamental right. We merge premium, Scandinavian-inspired design with evidence-based functionality to create resources that don't just work—they look beautiful in your home, classroom, or clinic.</p>
+                    <p>Whether you need custom AAC supports, executive function printables, or adult independence resources, our warm, minimalist approach ensures that every visual aid is dignified, accessible, and crystal clear.</p>
+                </div>
+            </div>
+        </section>
 
-<main>
+        <section id="services" class="services-section section-padding bg-light">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2>Our Services</h2>
+                    <p>Tailored design solutions for neurodivergent individuals and the professionals who support them.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card scroll-reveal">
+                        <h3>Visual Supports</h3>
+                        <p>Custom communication cards, AAC supports, PECS resources, and autism visual supports designed with clarity and dignity.</p>
+                    </div>
+                    <div class="service-card scroll-reveal">
+                        <h3>Life Skills & Independence</h3>
+                        <p>Executive Function printables, visual schedules, and adult independence resources to foster autonomy and confidence.</p>
+                    </div>
+                    <div class="service-card scroll-reveal">
+                        <h3>Social Narratives</h3>
+                        <p>Customised social stories illustrated with soft, friendly visuals to guide individuals through new or complex situations.</p>
+                    </div>
+                    <div class="service-card scroll-reveal">
+                        <h3>Brand & Illustration</h3>
+                        <p>Vector illustrations, professional logo design, and custom educational graphics for schools and small businesses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- About -->
+        <section id="portfolio" class="portfolio-section section-padding">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2>Studio Portfolio</h2>
+                    <p>A curated selection of our recent premium designs.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item scroll-reveal">
+                        <img src="images/portfolio.jpg" alt="General Portfolio Preview">
+                        <div class="gallery-overlay"><span>Featured Work</span></div>
+                    </div>
+                    <div class="gallery-item scroll-reveal">
+                        <img src="images/communication-cards.jpg" alt="Custom Communication Cards">
+                        <div class="gallery-overlay"><span>Communication Cards</span></div>
+                    </div>
+                    <div class="gallery-item scroll-reveal">
+                        <img src="images/executive-function.jpg" alt="Executive Function Printables">
+                        <div class="gallery-overlay"><span>Executive Function</span></div>
+                    </div>
+                    <div class="gallery-item scroll-reveal">
+                        <img src="images/visual-schedule.jpg" alt="Visual Schedules">
+                        <div class="gallery-overlay"><span>Visual Schedules</span></div>
+                    </div>
+                    <div class="gallery-item scroll-reveal">
+                        <img src="images/social-stories.jpg" alt="Social Stories">
+                        <div class="gallery-overlay"><span>Social Stories</span></div>
+                    </div>
+                    <div class="gallery-item scroll-reveal">
+                        <img src="images/adult-independence.jpg" alt="Adult Independence Resources">
+                        <div class="gallery-overlay"><span>Adult Independence</span></div>
+                    </div>
+                    <div class="gallery-item scroll-reveal">
+                        <img src="images/work-schedule.jpg" alt="Work Schedule Designs">
+                        <div class="gallery-overlay"><span>Work Schedules</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Services -->
+        <section id="faq" class="faq-section section-padding bg-light">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="accordion scroll-reveal">
+                    <div class="accordion-item">
+                        <button class="accordion-btn">Who do you design for?</button>
+                        <div class="accordion-content">
+                            <p>We create premium resources for parents, teachers, speech therapists, occupational therapists, schools, and small businesses who value high-quality, effective visual communication.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-btn">Can you create custom illustrations?</button>
+                        <div class="accordion-content">
+                            <p>Yes, we specialise in custom vector illustrations to ensure that the visual aids precisely match the needs, environment, or brand of the individual or organisation.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-btn">Where can I purchase your pre-made resources?</button>
+                        <div class="accordion-content">
+                            <p>You can browse and purchase our ready-to-use toolkits, printables, and cards directly through our Etsy shop.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Portfolio -->
+        <section id="contact" class="contact-section section-padding">
+            <div class="container contact-container">
+                <div class="contact-info scroll-reveal">
+                    <h2>Let's work together</h2>
+                    <p>Ready to elevate your visual communication? Reach out to discuss custom projects, school partnerships, or business branding.</p>
+                    <img src="images/contact.jpg" alt="Contact The SEN & Co Toolkit Studio" class="contact-img">
+                </div>
+                <div class="contact-form-wrapper scroll-reveal">
+                    <form id="contact-form" class="contact-form">
+                        <div class="input-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <!-- FAQ -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <h3>The SEN & Co.</h3>
+                <p>Custom Visual Communication & Design</p>
+            </div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.etsy.com" target="_blank" rel="noopener noreferrer">Etsy Shop</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The SEN & Co Toolkit Studio. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <!-- Contact -->
-
-</main>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
