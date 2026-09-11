@@ -1,157 +1,52 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Menu Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active'); 
-        });
-    }
-
-    // 2. Sticky Header (Shadow after 50px)
-    const header = document.querySelector('header');
-    
-    const handleScroll = () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    };
-    
-    // Listen to scroll and run once on load
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    // 3. Smooth Scrolling for Navigation Links
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                e.preventDefault();
-                
-                // Close mobile menu if it is open
-                if (navLinks && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    hamburger.classList.remove('active');
-                }
-
-                // Calculate offset for sticky header
-                const headerOffset = header ? header.offsetHeight : 0;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // 4. Fade-in Animation using Intersection Observer
-    const revealElements = document.querySelectorAll('.scroll-reveal');
-    
-    const revealOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
-    
-    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Animate only once
-            }
-        });
-    }, revealOptions);
-    
-    revealElements.forEach(el => {
-        revealOnScroll.observe(el);
-    });
-
-    // 5. Highlight Active Navigation Link on Scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navItems = document.querySelectorAll('.nav-links a[href^="#"]');
-    
-    const highlightNav = () => {
-        let scrollY = window.scrollY;
-        
-        sections.forEach(current => {
-            const sectionHeight = current.offsetHeight;
-            const sectionTop = current.offsetTop - 120; // Offset accounts for sticky header
-            const sectionId = current.getAttribute('id');
-            
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                navItems.forEach(link => {
-                    link.classList.remove('active-link');
-                    // Add an active class to the link, or directly modify its style
-                    if (link.getAttribute('href') === '#' + sectionId) {
-                        link.style.color = 'var(--clr-sage-dark)'; // Using the CSS variable
-                        link.style.fontWeight = '600';
-                    } else {
-                        link.style.color = '';
-                        link.style.fontWeight = '';
-                    }
-                });
-            }
-        });
-    };
-    
-    window.addEventListener('scroll', highlightNav);
-
-    // 6. Animate Buttons slightly on hover and click (Vanilla JS addition to CSS)
-    const buttons = document.querySelectorAll('.btn, .submit-btn');
-    
-    buttons.forEach(button => {
-        // Click shrink effect
-        button.addEventListener('mousedown', () => {
-            button.style.transform = 'scale(0.95)';
-        });
-        
-        // Return to normal
-        button.addEventListener('mouseup', () => {
-            button.style.transform = 'scale(1.02)'; // Matches CSS hover state
-        });
-        
-        // Reset if mouse leaves while clicking
-        button.addEventListener('mouseleave', () => {
-            button.style.transform = ''; 
-        });
-    });
-
-    // 7. FAQ Accordion Logic (Matches HTML structure)
-    const accordionBtns = document.querySelectorAll('.accordion-btn');
-    
-    accordionBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Close all other accordions
-            accordionBtns.forEach(otherBtn => {
-                if (otherBtn !== this) {
-                    otherBtn.classList.remove('active');
-                    otherBtn.nextElementSibling.style.maxHeight = null;
-                }
-            });
-
-            // Toggle current accordion
-            this.classList.toggle('active');
-            const content = this.nextElementSibling;
-            
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + 'px';
-            }
-        });
-    });
+/* Keep purchase routing separate from presentation. Replace null resource URLs
+   with verified listing URLs; a future checkout integration can use the same IDs.
+   Digital delivery and payments must be implemented by a secure provider/backend. */
+const commerce = Object.freeze({
+  provider: 'etsy',
+  shopUrl: 'https://www.etsy.com/shop/TheSENandCoToolkit',
+  resources: { 'daily-living': null, communication: null, routines: null }
+});
+document.documentElement.classList.add('js');
+const menu = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#main-nav');
+menu.hidden = false;
+function closeMenu() {
+  navigation.classList.remove('open');
+  menu.setAttribute('aria-expanded', 'false');
+  menu.textContent = 'Menu';
+}
+menu.addEventListener('click', () => {
+  const open = menu.getAttribute('aria-expanded') !== 'true';
+  menu.setAttribute('aria-expanded', String(open));
+  menu.textContent = open ? 'Close' : 'Menu';
+  navigation.classList.toggle('open', open);
+});
+navigation.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); }
+});
+window.matchMedia('(max-width: 760px)').addEventListener('change', closeMenu);
+document.querySelectorAll('[data-purchase]').forEach(link => {
+  link.href = commerce.resources[link.dataset.purchase] || commerce.shopUrl;
+});
+document.querySelector('#year').textContent = new Date().getFullYear();
+const form = document.querySelector('#contact-form');
+const request = document.querySelector('#request-copy');
+const status = document.querySelector('#form-status');
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  const idea = form.elements.message.value.trim();
+  if (!idea) { form.elements.message.setCustomValidity('Please describe your idea.'); form.elements.message.reportValidity(); return; }
+  const name = form.elements.name.value.trim();
+  request.value = `Hello SEN & Co,\n\nI would like to discuss: ${form.elements.resource.value}.\n\n${idea}${name ? `\n\nFrom ${name}` : ''}`;
+  document.querySelector('#request-result').hidden = false;
+  const emailLink = document.querySelector('#open-email');
+  emailLink.href = 'mailto:thesenandcotoolkitstudio@hotmail.com?subject=' + encodeURIComponent('Custom design request: ' + form.elements.resource.value) + '&body=' + encodeURIComponent(request.value);
+  status.textContent = 'Your email is ready. Choose Open email app to review and send it. If you use webmail, copy the request and email thesenandcotoolkitstudio@hotmail.com.';
+  request.focus();
+});
+form.elements.message.addEventListener('input', () => form.elements.message.setCustomValidity(''));
+document.querySelector('#copy-request').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(request.value); status.textContent = 'Copied. Paste your request into an email to thesenandcotoolkitstudio@hotmail.com.'; }
+  catch { request.focus(); request.select(); status.textContent = 'Your request is selected. Use your device’s Copy command, then paste it into your email.'; }
 });

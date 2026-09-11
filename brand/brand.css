@@ -1,0 +1,7 @@
+:root {
+  --brand-navy: #082740;
+  --brand-sage: #8A9E74;
+  --brand-grey: #E9EEF2;
+  --brand-white: #FAFAF8;
+}
+.brand-logo { display: block; width: 220px; max-width: 100%; height: auto; }
