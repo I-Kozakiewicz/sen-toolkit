@@ -50,3 +50,17 @@ document.querySelector('#copy-request').addEventListener('click', async () => {
   try { await navigator.clipboard.writeText(request.value); status.textContent = 'Copied. Paste your request into an email to thesenandcotoolkitstudio@hotmail.com.'; }
   catch { request.focus(); request.select(); status.textContent = 'Your request is selected. Use your device’s Copy command, then paste it into your email.'; }
 });
+
+const filterBar = document.querySelector('.shop-filters');
+if (filterBar) {
+ const cards = [...document.querySelectorAll('.shop-grid .resource-card')];
+ const buttons = [...filterBar.querySelectorAll('[data-filter]')];
+ filterBar.hidden = false;
+ buttons.forEach(button => button.addEventListener('click', () => {
+  const category = button.dataset.filter;
+  buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  cards.forEach(card => { card.hidden = category !== 'all' && card.dataset.category !== category; });
+  const count = cards.filter(card => !card.hidden).length;
+  document.querySelector('#filter-status').textContent = `${count} ${count === 1 ? 'resource' : 'resources'} shown`;
+ }));
+}
