@@ -9,3 +9,15 @@
 @media(max-width:760px){.product-layout{grid-template-columns:1fr;gap:30px;padding-bottom:48px}.product-summary h1{font-size:2.8rem}.product-detail-grid{grid-template-columns:1fr;gap:25px}.card-title-columns ol{columns:1}.product-help .container{flex-direction:column;align-items:flex-start}.product-breadcrumb{font-size:.85rem;padding-block:22px}.product-tile img{max-height:180px}}
 
 .shop-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}.shop-filters button[aria-pressed="true"]{background:var(--navy);color:white}#filter-status:empty{display:none}#filter-status{margin:0 0 18px;font-size:.9rem}
+
+/* Social links above the main navigation */
+.social-topbar{background:var(--navy);color:var(--cream)}
+.social-topbar-inner{display:flex;justify-content:flex-end;align-items:center;gap:16px;min-height:44px}
+.social-topbar-inner>span{font-size:.8rem;letter-spacing:.03em}
+.social-icons{display:flex;flex-direction:row;align-items:center;gap:4px}
+.social-icons a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:4px;color:inherit}
+.social-icons a:hover{background:#ffffff20}
+.social-icons a:focus-visible{outline:2px solid var(--cream);outline-offset:-4px}
+.social-icons svg{display:block;flex-shrink:0}
+html{scroll-padding-top:160px}
+@media(max-width:760px){.social-topbar-inner{justify-content:center;gap:10px}html{scroll-padding-top:145px}}
