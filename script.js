@@ -53,7 +53,7 @@ document.querySelector('#copy-request').addEventListener('click', async () => {
 
 const filterBar = document.querySelector('.shop-filters');
 if (filterBar) {
- const cards = [...document.querySelectorAll('.shop-grid .resource-card')];
+ const cards = [...document.querySelectorAll('#shop .shop-grid .resource-card')];
  const buttons = [...filterBar.querySelectorAll('[data-filter]')];
  filterBar.hidden = false;
  buttons.forEach(button => button.addEventListener('click', () => {
